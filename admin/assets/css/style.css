@@ -1,0 +1,539 @@
+/* General Dark Theme */
+body {
+    background-color: #121212; /* Very dark grey (almost black) */
+    color: #FFDAB9; /* Peach for primary text */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 20px; /* Space for potential fixed top elements if navbar wasn't on side */
+    padding-left: 100px; /* Initial space for collapsed sidebar */
+    transition: padding-left 0.3s ease-in-out;
+}
+
+/* ----- Vertical Hover Navbar ----- */
+.sidebar {
+    height: 100%;
+    width: 80px; /* Collapsed width */
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background-color: #000000; /* Black */
+    overflow-x: hidden;
+    transition: width 0.3s ease-in-out;
+    padding-top: 60px; /* Space for a potential logo/header */
+    white-space: nowrap; /* Prevent text wrapping when expanding */
+}
+
+.sidebar:hover {
+    width: 250px; /* Expanded width */
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 1.1em;
+    color: #FFA500; /* Orange */
+    display: block;
+    transition: 0.2s;
+}
+
+.sidebar a i {
+    margin-right: 10px;
+    width: 20px; /* Ensure icons align */
+    text-align: center;
+}
+
+.sidebar a .nav-text {
+    display: none; /* Hidden when collapsed */
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out 0.1s; /* Delayed appearance */
+}
+
+.sidebar:hover a .nav-text {
+    display: inline;
+    opacity: 1;
+}
+
+.sidebar a:hover {
+    background-color: #FF4500; /* Red */
+    color: #FFFFFF; /* White text on hover */
+}
+
+.sidebar .sidebar-header {
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 1.5em;
+    color: #FFC107; /* Yellow */
+    border-bottom: 1px solid #FF4500; /* Red */
+}
+
+.sidebar:hover .sidebar-header .nav-text {
+    display: inline;
+}
+.sidebar .sidebar-header .nav-text {
+     display: none;
+}
+
+
+/* Adjust main content padding when sidebar hovers */
+body.sidebar-hover-active {
+    padding-left: 270px; /* Expanded sidebar width + small gutter */
+}
+
+
+/* ----- Main Content Area ----- */
+.main-content {
+    transition: margin-left 0.3s ease-in-out;
+    padding: 20px;
+    background-color: #1E1E1E; /* Slightly lighter dark for content background */
+    border-radius: 8px;
+    margin-left: 80px; /* Initial margin for collapsed sidebar */
+    min-height: 90vh;
+}
+
+/* When sidebar hovers, main content margin should match expanded sidebar */
+.sidebar:hover ~ .main-container .main-content {
+    margin-left: 250px;
+}
+.main-container { /* Wrap content to manage margin correctly */
+    width: calc(100% - 80px); /* Initial width, adjusted by sidebar */
+    margin-left: 80px;
+    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+.sidebar:hover ~ .main-container {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+
+/* ----- Bootstrap Component Overrides ----- */
+.card {
+    background-color: #2b2b2b; /* Darker card background */
+    border: 1px solid #FF4500; /* Red border */
+    color: #FFDAB9; /* Peach text */
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    background-color: #FF8C00; /* Dark Orange */
+    color: #000000; /* Black text */
+    border-bottom: 1px solid #FF4500; /* Red */
+}
+
+.card-title {
+    color: #FFC107; /* Yellow */
+}
+
+.btn {
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: #FF4500; /* Red */
+    border-color: #E03E00; /* Darker Red */
+    color: #FFFFFF;
+}
+.btn-primary:hover {
+    background-color: #DC3545; /* Bootstrap Danger Red */
+    border-color: #B02A37;
+    color: #FFFFFF;
+}
+
+.btn-secondary {
+    background-color: #FFA500; /* Orange */
+    border-color: #E08E00; /* Darker Orange */
+    color: #000000;
+}
+.btn-secondary:hover {
+    background-color: #FFC107; /* Yellow */
+    border-color: #E0A800;
+    color: #000000;
+}
+
+.btn-danger {
+    background-color: #B22222; /* Firebrick Red */
+    border-color: #8B0000; /* Dark Red */
+    color: #FFFFFF;
+}
+.btn-danger:hover {
+    background-color: #8B0000;
+    border-color: #6A0000;
+    color: #FFFFFF;
+}
+
+.btn-info { /* Using for "view" or less critical actions */
+    background-color: #FFC107; /* Yellow */
+    border-color: #E0A800;
+    color: #000000;
+}
+.btn-info:hover {
+    background-color: #e9b306;
+    border-color: #c69500;
+    color: #000000;
+}
+
+
+.form-control, .form-select {
+    background-color: #333333;
+    color: #FFDAB9; /* Peach */
+    border: 1px solid #FFA500; /* Orange */
+}
+.form-control:focus, .form-select:focus {
+    background-color: #404040;
+    color: #FFDEAD; /* NavajoWhite (lighter peach) */
+    border-color: #FFC107; /* Yellow */
+    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25); /* Yellow glow */
+}
+.form-label {
+    color: #FFA500; /* Orange */
+}
+
+table {
+    color: #FFDAB9; /* Peach */
+}
+thead th {
+    background-color: #FF8C00 !important; /* Dark Orange */
+    color: #000000 !important; /* Black */
+    border-color: #FF4500 !important; /* Red */
+}
+tbody tr:nth-child(odd) {
+    background-color: #2a2a2a;
+}
+tbody tr:hover {
+    background-color: #FFC107; /* Yellow */
+    color: #000000; /* Black text on hover */
+}
+td, th {
+    border-color: #FF4500 !important; /* Red */
+}
+
+.table-dark { /* Ensure Bootstrap's table-dark works with our theme */
+    --bs-table-bg: #2b2b2b;
+    --bs-table-border-color: #FF4500;
+    --bs-table-color: #FFDAB9;
+    --bs-table-hover-bg: #FFC107;
+    --bs-table-hover-color: #000000;
+}
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    --bs-table-accent-bg: #222222; /* Darker stripe */
+}
+
+
+.alert-success {
+    background-color: #FFC107; /* Yellow for success */
+    color: #000000;
+    border-color: #E0A800;
+}
+.alert-danger {
+    background-color: #B22222; /* Firebrick Red for error */
+    color: #FFFFFF;
+    border-color: #8B0000;
+}
+
+/* Pagination */
+.pagination .page-item .page-link {
+    background-color: #333;
+    border-color: #FFA500; /* Orange */
+    color: #FFA500; /* Orange */
+}
+.pagination .page-item.active .page-link {
+    background-color: #FF4500; /* Red */
+    border-color: #FF4500;
+    color: #FFFFFF;
+}
+.pagination .page-item.disabled .page-link {
+    background-color: #222;
+    border-color: #444;
+    color: #666;
+}
+.pagination .page-item .page-link:hover {
+    background-color: #FFC107; /* Yellow */
+    color: #000000;
+}
+
+/* Tiny venue card */
+.venue-card {
+    border: 1px solid #FF8C00; /* Dark Orange border */
+    padding: 0.8rem;
+    min-height: 150px; /* Ensure consistent height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.venue-card .card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: #FFC107; /* Yellow */
+}
+.venue-card .card-subtitle {
+    font-size: 0.9rem;
+    color: #FFA500; /* Orange */
+    margin-bottom: 0.5rem;
+}
+.venue-card p {
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+    color: #FFDAB9; /* Peach */
+}
+.venue-card .badge {
+    font-size: 0.75rem;
+}
+.venue-card .actions a {
+    margin-right: 5px;
+    font-size: 0.8rem;
+}
+
+/* Stats boxes */
+.stat-box {
+    background-color: #2b2b2b;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid #FFA500; /* Orange */
+    margin-bottom: 15px;
+}
+.stat-box h3 {
+    color: #FFC107; /* Yellow */
+    margin-bottom: 5px;
+}
+.stat-box p {
+    color: #FFDAB9; /* Peach */
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Modal styling */
+.modal-content {
+    background-color: #1E1E1E; /* Dark background for modal */
+    color: #FFDAB9; /* Peach text */
+    border: 1px solid #FF4500; /* Red border */
+}
+.modal-header {
+    border-bottom: 1px solid #FF8C00; /* Dark Orange */
+}
+.modal-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%); /* Make close button visible on dark bg */
+}
+.modal-title {
+    color: #FFC107; /* Yellow */
+}
+.modal-footer {
+    border-top: 1px solid #FF8C00; /* Dark Orange */
+}
+
+/* Make dropdown menus dark-themed */
+.dropdown-menu {
+    background-color: #2b2b2b;
+    border: 1px solid #FF8C00; /* Dark Orange */
+}
+.dropdown-item {
+    color: #FFDAB9; /* Peach */
+}
+.dropdown-item:hover, .dropdown-item:focus {
+    color: #000000;
+    background-color: #FFC107; /* Yellow */
+}
+.dropdown-divider {
+    border-top: 1px solid #FF8C00; /* Dark Orange */
+}
+
+/* === Venue Tickets Page Specific Styles === */
+.venue-selection-card {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.venue-selection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px #FFC107; /* Yellow glow */
+}
+.venue-selection-card.selected-venue {
+    border-color: #FFC107; /* Yellow */
+    box-shadow: 0 0 10px #FFC107, 0 0 20px #FF8C00 inset; /* Yellow border, orange inner shadow */
+    background-color: #3a3a3a;
+}
+.venue-selection-card .btn-manage-tickets {
+    background-color: #FFC107; /* Yellow */
+    color: #000000;
+    border-color: #E0A800;
+}
+.venue-selection-card .btn-manage-tickets:hover {
+    background-color: #ffdb58; /* Lighter Yellow */
+}
+
+.ticket-management-section {
+    border: 1px solid #FF8C00; /* Dark Orange */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: #1A1A1A; /* Slightly lighter than main content bg */
+}
+
+/* Ticket Map Visualizer */
+.ticket-map-container {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #FFA500; /* Orange */
+    background-color: #252525;
+    border-radius: 5px;
+    overflow-x: auto; /* For very wide maps */
+}
+.ticket-map-section {
+    margin-bottom: 15px;
+}
+.ticket-map-section h5 {
+    color: #FFC107; /* Yellow */
+    border-bottom: 1px solid #FFA500;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+.ticket-map {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(35px, 1fr)); */ /* JS will set columns an rows */
+    gap: 4px;
+    margin-bottom: 10px;
+    align-items: start; /* Important for varying row lengths */
+}
+.ticket-map-row-label {
+    grid-column: 1 / 2; /* Always in the first column */
+    font-weight: bold;
+    color: #FFA500; /* Orange */
+    text-align: center;
+    align-self: center;
+    padding-right: 10px;
+}
+.ticket-map-col-header {
+    font-weight: bold;
+    color: #FFA500;
+    text-align: center;
+    font-size: 0.8em;
+    height: 20px; /* Line up with seats */
+}
+
+.seat {
+    width: 35px;
+    height: 35px;
+    font-size: 0.7em;
+    border: 1px solid #FFA500; /* Orange */
+    color: #000000; /* Black text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 3px;
+    position: relative; /* For tooltips or icons */
+    transition: background-color 0.2s, transform 0.1s;
+}
+.seat:hover {
+    transform: scale(1.1);
+    z-index: 10;
+}
+.seat.selected {
+    background-color: #FF4500 !important; /* Red - important to override others */
+    color: #FFFFFF;
+    border: 2px solid #FFC107; /* Yellow border for selected */
+}
+.seat.vacant-yes {
+    background-color: #4CAF50; /* Greenish (Bootstrap success) */
+}
+.seat.vacant-no {
+    background-color: #6c757d; /* Grey (Bootstrap secondary) for booked/occupied */
+}
+.seat.active-no {
+    opacity: 0.6;
+    border-style: dashed;
+    border-color: #FFDAB9; /* Peach dashed border for inactive */
+    background-color: #444; /* Darker grey for inactive */
+    cursor: not-allowed;
+}
+.seat.active-no.vacant-yes {
+     background-color: #3e8e41; /* Darker green for inactive but vacant */
+}
+.seat.active-no.vacant-no {
+    background-color: #5a6268; /* Darker grey for inactive and booked */
+}
+.seat .seat-tooltip { /* Basic CSS tooltip */
+    visibility: hidden;
+    width: 150px;
+    background-color: #000000;
+    color: #FFDAB9;
+    text-align: left;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #FFC107;
+    position: absolute;
+    z-index: 100;
+    bottom: 125%; /* Position above the seat */
+    left: 50%;
+    margin-left: -75px; /* Center the tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.9em;
+    pointer-events: none; /* So it doesn't interfere with clicks */
+}
+.seat:hover .seat-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+.ticket-map-legend {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+}
+.legend-item .seat {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    cursor: default;
+    pointer-events: none; /* Don't allow clicking legend items */
+}
+.legend-item .seat:hover { transform: none; } /* No hover effect on legend items */
+
+
+/* Tiny Ticket Divs for Listing */
+.ticket-card {
+    border: 1px solid #FFA500; /* Orange border */
+    padding: 0.6rem;
+    min-height: 100px; /* Ensure consistent height */
+    font-size: 0.85rem;
+}
+.ticket-card .card-title {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    color: #FFC107; /* Yellow */
+}
+.ticket-card .card-subtitle {
+    font-size: 0.8rem;
+    color: #FFA500; /* Orange */
+    margin-bottom: 0.3rem;
+}
+.ticket-card p {
+    font-size: 0.8rem;
+    margin-bottom: 0.1rem;
+}
+.ticket-card .actions a, .ticket-card .actions button {
+    margin-right: 3px;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.4rem;
+}
+
+/* Bulk Action Form */
+#bulkActionForm {
+    background-color: #222;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #FF8C00; /* Dark Orange */
+}
+
+/* Ensure modals are styled correctly */
+.modal-content {
+    /* background-color: #1E1E1E; already defined, ensure it's not overridden */
+}
+

@@ -1,0 +1,69 @@
+/* Logo styling with fixed size */
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+/* City dropdown styling */
+.city-dropdown {
+    width: 180px;
+}
+
+/* Search bar styling */
+.search-form {
+    flex-grow: 1;
+    max-width: 500px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.search-form .input-group {
+    width: 100%;
+}
+
+/* Second navbar styling */
+.second-navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.second-navbar .nav-link {
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.second-navbar .nav-link:hover {
+    color: #f84464;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .search-form {
+        order: 3;
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .city-selector {
+        order: 2;
+    }
+    
+    .navbar-nav {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        height: 30px;
+    }
+    
+    .city-dropdown {
+        width: 140px;
+    }
+    
+    .second-navbar .nav-item {
+        margin-bottom: 5px;
+    }
+}
